@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Trivia Game</title>
+        <title>Gif Generator</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
@@ -13,6 +13,31 @@
         <script src="assets/javascript/script.js"></script>
     </head>
 <body>
-    
+    <div class="jumbotron" id="header">
+        <div class="container">
+            <h1>Get gifs of your favorite fighters!</h1>
+            <p>Click any of the buttons on the page to generate gifs!</p>
+            <p>If you want to add fighters of your own search a fighter and add them!</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <form class="form-inline ml-5" id="fighterSearch">
+                <div class="form-group">
+                    <label for="fighterInput" class="mr-2">Search your fighter:</label>
+                    <input type="text" id="fighterInput">
+                </div>
+                <!-- Button triggers fighter to be added -->
+                <input id="addFighter" type="submit" value="Add Fighter" class="ml-2">
+            </form>
+        </div>
+    </div>
+    <div id="fighterButtons"></div>
+    <div class="row">
+        <div class="container">
+            <div class = "row" id="gifArea">
+            </div>
+        </div> 
+    </div>    
 </body>
 </html>
