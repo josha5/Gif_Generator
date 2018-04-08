@@ -32,10 +32,16 @@ $(document).ready(function() {
                         let defaultAnimatedSrc = results[i].images.fixed_height.url;
                         let staticSrc = results[i].images.fixed_height_still.url;
                         let rating = results[i].rating;
+                        let p = $("<p>").text("Rating: " + rating.toUpperCase());
+
+                        gifImage.addClass("fighterGif");
                         gifImage.attr("src", staticSrc);
+                        gifImage.attr("data-state", "still");
+                        gifImage.attr("data-still", staticSrc);
                         gifImage.attr("data-animate", defaultAnimatedSrc);
+                        fighterDiv.prepend(p);
                         fighterDiv.prepend(gifImage);
-                        $("#gifArea").prepend(fighterDiv);
+                        $("#gifDiv").prepend(fighterDiv);
                     }
                 });
             });
@@ -44,8 +50,6 @@ $(document).ready(function() {
     }
     makeButtons();
     
-    
-       
     $("#addFighter").on("click", function(e) {
         e.preventDefault();
         let addedFighter = topics.push($("#fighterInput").val());
@@ -53,5 +57,17 @@ $(document).ready(function() {
         makeButtons();
     });
 
+    const switchState = function() {
+        let currentState = $(this).attr("data-state");
+        if(currentState === "still") {
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attr("data-state", "animate");
+        } else {
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", "still");
+        }
+    }
+
+    $(document).on("click", ".fighterGif", switchState);
 
 });
