@@ -55,6 +55,7 @@ $(document).ready(function() {
         let addedFighter = topics.push($("#fighterInput").val());
         console.log(topics);
         makeButtons();
+        $("form").trigger("reset");
     });
 
     const switchState = function() {
